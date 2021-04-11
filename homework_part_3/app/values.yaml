@@ -1,0 +1,22 @@
+replicaCount: 1
+
+image:
+  repository: nginx
+  tag: 1.19.8
+
+labels:
+  app: web
+
+name: web
+
+service:
+  name: app-svc
+  port: 80
+  app: web
+
+ingress:
+  ingressClass: nginx
+  name: app-ingress
+  serviceName: app-svc
+  servicePort: 80
+  path: /
